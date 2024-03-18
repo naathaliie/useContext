@@ -1,9 +1,11 @@
 //Komponent för att visa alla studenter
-import { StudentContext } from "./StudentContext";
+/* import { StudentContext } from "./StudentContext"; */
 import { useContext } from "react";
+import { GlobalStatesContext } from "../GlobalStateContext";
 
 const StudentList = () => {
-  const students = useContext(StudentContext);
+  const globalState = useContext(GlobalStatesContext);
+  const students = globalState.students;
 
   return (
     <div>

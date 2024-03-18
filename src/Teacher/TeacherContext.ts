@@ -8,7 +8,7 @@ type Teacher = {
   id: string;
   name: string;
   age: number;
-  teach: string;
+  teach: string [];
 };
 
 export const initialTeacher: Teacher[] = [
@@ -16,19 +16,19 @@ export const initialTeacher: Teacher[] = [
     id: uuid(),
     name: "Åke",
     age: 57,
-    teach: "Matematik",
+    teach: ["Matematik", "Historia", "Orientering"],
   },
   {
     id: uuid(),
     name: "Margit",
     age: 63,
-    teach: "Syslöjd",
+    teach: ["Syslöjd", "Hemkuskap", "NO"]
   },
   {
     id: uuid(),
     name: "Lisa",
     age: 35,
-    teach: "Historia",
+    teach: ["Historia", "Religion"]
   },
 ];
 
