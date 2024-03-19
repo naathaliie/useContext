@@ -2,10 +2,10 @@ import { useContext } from "react";
 /* import { TeacherContext } from "./TeacherContext"; */
 import "./TeacherList.scss";
 
-import { GlobalStatesContext } from "../GlobalStateContext";
+import { GlobalStateContext } from "../GlobalStateContext";
 
 const TeacherList = () => {
-  const globalState = useContext(GlobalStatesContext);
+  const globalState = useContext(GlobalStateContext);
   const teachers = globalState.teachers;
 
   return (
@@ -15,8 +15,8 @@ const TeacherList = () => {
         {teachers.map((t) => {
           return (
             <li key={t.id}>
-              Namn: {t.name} <br /> Ålder: {t.age} <br /> Ämne:{" "}
-              {t.teach.join(", ")}
+              Namn: {t.name} <br /> Klass: {t.class} <br /> Ämne:{" "}
+              {t.headTopics.join(", ")}
             </li>
           );
         })}

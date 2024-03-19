@@ -1,26 +1,17 @@
-import { StudentContext } from "./Student/StudentContext";
-import { initialStudents } from "./Student/StudentContext";
-import { TeacherContext, initialTeacher } from "./Teacher/TeacherContext";
-
-import "./App.css";
+import { GlobalStateContext, InitalGlobalState } from "./GlobalStateContext";
 import StudentList from "./Student/StudentList";
+import SearchTeacher from "./Teacher/SearchTeacher";
 import TeacherList from "./Teacher/TeacherList";
-import { GlobalStatesContext } from "./GlobalStateContext";
-import { initialGlobalState } from "./GlobalStateContext";
-import { MonsterContext, initialMonsters } from "./Monster/MonsterContext";
-import MonsterList from "./Monster/MonsterList";
+import "./App.scss";
 
 function App() {
   return (
-    <div>
-      <GlobalStatesContext.Provider value={initialGlobalState}>
-        <h1>Student Context Demo Stuff</h1>
+    <div className="app">
+      <GlobalStateContext.Provider value={InitalGlobalState}>
         <TeacherList />
         <StudentList />
-      </GlobalStatesContext.Provider>
-      <MonsterContext.Provider value={initialMonsters}>
-        <MonsterList />
-      </MonsterContext.Provider>
+        <SearchTeacher />
+      </GlobalStateContext.Provider>
     </div>
   );
 }

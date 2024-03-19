@@ -1,72 +1,98 @@
-//Context som lagrar alla Teachers och Students
-
 import { createContext } from "react";
 import uuid from "react-uuid";
 
-//Skapar en egen typ för teacher som är ett objekt
+type Student = {
+    id:string,
+    name:string,
+    age:number,
+    class:number,
+    fav_class: string[],
+};
 type Teacher = {
-  id: string;
-  name: string;
-  age: number;
-  teach: string [];
+    id:string,
+    name:string,
+    class: number,
+    headTopics: string[],
 };
 
-const initialTeacher: Teacher[] = [
-  {
-    id: uuid(),
-    name: "Åke",
-    age: 57,
-    teach: ["Matematik", "Historia", "Orientering"],
-  },
-  {
-    id: uuid(),
-    name: "Margit",
-    age: 63,
-    teach: ["Syslöjd", "Hemkuskap", "NO"]
-  },
-  {
-    id: uuid(),
-    name: "Lisa",
-    age: 35,
-    teach: ["Historia", "Religion"]
-  },
-];
-/******************************************************************************/
-type Student = {
-    id: string;
-    name: string;
-    age: number;
-  };
-
-export const initialStudents: Student[] = [
-    {
-      id: uuid(),
-      name: "Bosse",
-      age: 34,
-    },
-    {
-      id: uuid(),
-      name: "Stina",
-      age: 46,
-    },
-    {
-      id: uuid(),
-      name: "Kim",
-      age: 26,
-    },
-  ];
-/******************************************************************************/
-type GlobalStates = {
+type GlobalState = {
     students: Student[],
     teachers: Teacher[],
 };
 
-export const initialGlobalState:GlobalStates = {
-    students: initialStudents,
-    teachers: initialTeacher
-}
-
-export const GlobalStatesContext = createContext({} as GlobalStates);
-
-
-
+export const InitalGlobalState:GlobalState = {
+    students:[{
+        id: uuid(),
+        name: "Pelle",
+        age: 12,
+        class: 3,
+        fav_class: ["Matte", "Svenska"],
+    },
+    {
+        id: uuid(),
+        name: "Lisa",
+        age: 12,
+        class: 3,
+        fav_class: ["Historia", "Bild"],
+    },
+    {
+        id: uuid(),
+        name: "Klara",
+        age: 13,
+        class: 5,
+        fav_class: ["Psykologi", "Idrott"],
+    }],
+    teachers:[ {
+        id: uuid(),
+        name: "lena",
+        class: 3,
+        headTopics: ["Svenska", "Matte", "Historia"],
+    },
+    {
+        id: uuid(),
+        name: "per",
+        class: 4,
+        headTopics: ["Idrott", "Fysik", "Kemi"],
+    },{
+        id: uuid(),
+        name: "olivia",
+        class: 3,
+        headTopics: ["Hemkunskap", "Slöjd", "Fysik"],
+    },
+    {
+        id: uuid(),
+        name: "per",
+        class: 3,
+        headTopics: ["Slöjd", "Matte", "Historia"],
+    },
+    {
+        id: uuid(),
+        name: "per",
+        class: 4,
+        headTopics: ["NO", "Psykologi", "Biologi"],
+    },{
+        id: uuid(),
+        name: "olivia",
+        class: 3,
+        headTopics: ["Hemkunskap", "Slöjd", "Historia"],
+    },
+    {
+        id: uuid(),
+        name: "lena",
+        class: 3,
+        headTopics: ["Slöjd"],
+    },
+    {
+        id: uuid(),
+        name: "per",
+        class: 4,
+        headTopics: ["Bild", "Träslöjd"],
+    },{
+        id: uuid(),
+        name: "klara",
+        class: 3,
+        headTopics: ["Samhällskunskap", "Svenska", "Engelska"],
+    }
+]
+};
+export const GlobalStateContext = createContext({} as GlobalState);
