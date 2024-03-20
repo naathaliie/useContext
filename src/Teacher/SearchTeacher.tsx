@@ -11,6 +11,7 @@ import { GlobalStateContext } from "../GlobalStateContext";
 type Teacher = {
   id: string;
   name: string;
+  lastname: string;
   class: number;
   headTopics: string[];
 };
@@ -64,7 +65,7 @@ const SearchTeacher = () => {
 
   return (
     <div className="searchTeacherDiv">
-      <h3>SearchTeacher</h3>
+      <h2>SearchTeacher</h2>
       <div>
         <label htmlFor="teacherSearch">Sök på en lärare:</label>
         <input
@@ -81,7 +82,7 @@ const SearchTeacher = () => {
         {resultNames.map((r) => {
           return (
             <ul key={r.id}>
-              {r.name}
+              {r.name} {r.lastname}
               <li>Undervisar i klass: {r.class} </li>
               <li>Huvudämnen: {r.headTopics.join(", ")}</li>
             </ul>

@@ -11,6 +11,7 @@ type Student = {
 type Teacher = {
     id:string,
     name:string,
+    lastname: string,
     class: number,
     headTopics: string[],
 };
@@ -45,51 +46,60 @@ export const InitalGlobalState:GlobalState = {
     teachers:[ {
         id: uuid(),
         name: "lena",
+        lastname:"andersson",
         class: 3,
         headTopics: ["Svenska", "Matte", "Historia"],
     },
     {
         id: uuid(),
         name: "per",
+        lastname:"persson",
         class: 4,
         headTopics: ["Idrott", "Fysik", "Kemi"],
     },{
         id: uuid(),
         name: "olivia",
+        lastname:"karlsson",
         class: 3,
         headTopics: ["Hemkunskap", "Slöjd", "Fysik"],
     },
     {
         id: uuid(),
         name: "per",
+        lastname:"svensson",
         class: 3,
         headTopics: ["Slöjd", "Matte", "Historia"],
     },
     {
         id: uuid(),
         name: "per",
+        lastname:"larsson",
         class: 4,
         headTopics: ["NO", "Psykologi", "Biologi"],
     },{
         id: uuid(),
         name: "olivia",
+        lastname:"hult",
         class: 3,
         headTopics: ["Hemkunskap", "Slöjd", "Historia"],
     },
     {
         id: uuid(),
         name: "lena",
+        lastname:"carlström",
         class: 3,
         headTopics: ["Slöjd"],
     },
     {
         id: uuid(),
         name: "per",
+        lastname:"Kristensson",
         class: 4,
         headTopics: ["Bild", "Träslöjd"],
     },{
         id: uuid(),
         name: "klara",
+        lastname:"gustafsson",
         class: 3,
         headTopics: ["Samhällskunskap", "Svenska", "Engelska"],
     }
