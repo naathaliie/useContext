@@ -1,23 +1,55 @@
-import { useContext } from "react";
-import { MonsterContext } from "./MonsterContext";
+import { useContext, useState } from "react";
+import { monsterContext } from "./MonsterContext";
 
 const MonsterList = () => {
-  const monsterContext = useContext(MonsterContext);
-  const monsters = monsterContext.monsters;
-  console.log("Hej", monsters);
+  const { state, dispatch } = useContext(monsterContext);
+  const [inputMonster, setInputMonster] = useState(""); // tom sträng eller initalMonsters??
+
+  const handledChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setInputMonster(e.target.value);
+  };
+
+  const hanleOnClick = () => {
+    dispatch({
+      type: "add",
+      payload: {
+        type: "kindmonster",
+        name: inputMonster,
+        eyes: 1,
+        fleshEater: true,
+        pet: "Dragonpuppy",
+      },
+    });
+  };
+
   return (
-    <div>
-      <ul>
-        <h3>Några Monster</h3>
-        {monsters.map((m, index) => {
+    <div className="monsterListDiv">
+      <h2>The monster list</h2>
+      <div>
+        <label htmlFor="monsterInput">Skapa ett nytt monster:</label>
+        <input onChange={handledChange} id="monsterInput" type="text" />
+        <button onClick={hanleOnClick}>Lägg till</button>
+        <button
+          onClick={() => {
+            dispatch({ type: "remove", payload: inputMonster });
+          }}
+        >
+          Ta bort
+        </button>
+      </div>
+      <div className="kindMonsterDiv">
+        <h4>Kind monsters</h4>
+        {state.kindMonsters.map((m, index) => {
           return (
-            <li key={index}>
-              Namn: {m.name},<br /> Antal ögon: {m.eyes}, <br />
-              Favoritmat: {m.FavouritFood.join(",")}
-            </li>
+            <ul key={index}>
+              Namn: {m.name}
+              <li>Antal ögon: {m.eyes}</li>
+              <li>Äter kött: {m.fleshEater ? "Ja" : "Nej"}</li>
+              <li>Husdjur: {m.pet}</li>
+            </ul>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };

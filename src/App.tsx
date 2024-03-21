@@ -5,16 +5,21 @@ import TeacherList from "./Teacher/TeacherList";
 import "./App.scss";
 import VehicleList from "./Fordon/VehicleList";
 import { Vehicles } from "./Fordon/VehicleTypes";
+import MonsterList from "./Monster/MonsterList";
+import MonsterContextProvider from "./Monster/MonsterContextProvider";
 
 function App() {
   return (
     <div className="app">
       <GlobalStateContext.Provider value={InitalGlobalState}>
-        <TeacherList />
+        {/*   <TeacherList />
         <StudentList />
-        <SearchTeacher />
+        <SearchTeacher /> */}
       </GlobalStateContext.Provider>
-      <VehicleList Vehicles={Vehicles} />
+      {/* <VehicleList Vehicles={Vehicles} /> */}
+      <MonsterContextProvider>
+        <MonsterList />
+      </MonsterContextProvider>
     </div>
   );
 }
