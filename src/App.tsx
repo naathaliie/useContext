@@ -12,9 +12,9 @@ function App() {
   return (
     <div className="app">
       <GlobalStateContext.Provider value={InitalGlobalState}>
-        {/*   <TeacherList />
+        <TeacherList />
         <StudentList />
-        <SearchTeacher /> */}
+        <SearchTeacher />
       </GlobalStateContext.Provider>
       {/* <VehicleList Vehicles={Vehicles} /> */}
       <MonsterContextProvider>
